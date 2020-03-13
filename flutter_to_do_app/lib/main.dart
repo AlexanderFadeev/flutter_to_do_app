@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_to_do_app/screens/list/list_screen.dart';
+import 'package:flutter_to_do_app/theme/theme.dart';
 
 void main() => runApp(ToDoApp());
 
@@ -7,27 +9,10 @@ class ToDoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'To Do App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: buildTheme(),
       home: ListScreen(),
     );
   }
 }
 
-class ListScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('To Do List'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Add Task',
-        onPressed: () => {},
-        child: Icon(Icons.add),
-      ),
-    );
-  }
-}
 
