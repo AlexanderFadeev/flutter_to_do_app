@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_to_do_app/models/list.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_to_do_app/screens/add/add_screen.dart';
 
 class AddButton extends StatelessWidget {
   @override
@@ -8,8 +7,9 @@ class AddButton extends StatelessWidget {
     return FloatingActionButton(
       tooltip: 'Add Task',
       onPressed: () {
-        var list = Provider.of<ListModel>(context, listen: false);
-        list.add("Item ${list.length + 1}");
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (_) => AddScreen(),
+        ));
       },
       child: Icon(Icons.add),
     );
