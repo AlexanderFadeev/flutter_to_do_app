@@ -10,10 +10,16 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ListModel list = Provider.of<ListModel>(context, listen: false);
+    ListModel list = Provider.of<ListModel>(context);
 
     return ListTile(
       title: Text(list.at(_index)),
+      onTap: () => _remove(context),
     );
+  }
+
+  _remove(context) {
+    var list = Provider.of<ListModel>(context, listen: false);
+    list.removeAt(_index);
   }
 }

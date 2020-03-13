@@ -12,6 +12,11 @@ class ListModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  removeAt(int index) {
+    _items.removeAt(index);
+    notifyListeners();
+  }
+
   get length {
     return _items.length;
   }
