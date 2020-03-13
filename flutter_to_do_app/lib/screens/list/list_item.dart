@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_to_do_app/models/list.dart';
+import 'package:flutter_to_do_app/screens/list/remove_dialog.dart';
 import 'package:provider/provider.dart';
 
 class ListItem extends StatelessWidget {
@@ -14,12 +15,9 @@ class ListItem extends StatelessWidget {
 
     return ListTile(
       title: Text(list.at(_index)),
-      onTap: () => _remove(context),
+      onTap: () {
+        showDialog(context: context, child: RemoveDialog(_index));
+      },
     );
-  }
-
-  _remove(context) {
-    var list = Provider.of<ListModel>(context, listen: false);
-    list.removeAt(_index);
   }
 }
